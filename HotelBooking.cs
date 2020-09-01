@@ -14,7 +14,7 @@ namespace TPQR_Session3_1_9
     {
         string HotelName;
         User _user;
-        DateTime endDate = DateTime.Parse("30/07/2020");
+        DateTime endDate = DateTime.Parse("30 July");
         DateTime arrival;
         int lengthOfStay = 0;
         public HotelBooking(User user, string hotelName)
@@ -32,8 +32,9 @@ namespace TPQR_Session3_1_9
         private void HotelBooking_Load(object sender, EventArgs e)
         {
             lblHotelName.Text = HotelName;
-            LoadRooms();
             LoadData();
+            LoadRooms();
+            
         }
 
         private void LoadData()
@@ -106,20 +107,12 @@ namespace TPQR_Session3_1_9
             lblTotalValue.Text = totalValue.ToString();
         }
 
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 3)
-            {
-                dataGridView1.Rows[e.RowIndex].Cells[4].Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value) * Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value) * lengthOfStay;
-                CalculateTotal();
-            }
-        }
 
         private void btnBook_Click(object sender, EventArgs e)
         {
             var totalParticipants = Int32.Parse(lblDelegates.Text) + Int32.Parse(lblCompetitors.Text);
             var getTotalCapOfRooms = 0;
-            for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+            for (int i = 0; i <= dataGridView1.RowCount - 1; i++)
             {
                 if (i == 0)
                 {
@@ -151,6 +144,7 @@ namespace TPQR_Session3_1_9
                         numSingleRoomsRequired = numberOfSingleBooked,
                         numDoubleRoomsRequired = numberOfDoubleBooked
                     };
+                    context.Hotel_Booking.Add(newBooking);
                     context.SaveChanges();
                     getHotel.numSingleRoomsBooked += numberOfSingleBooked;
                     getHotel.numDoubleRoomsBooked += numberOfDoubleBooked;
@@ -160,6 +154,15 @@ namespace TPQR_Session3_1_9
                     Close();
                 }
                 
+            }
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                dataGridView1.Rows[e.RowIndex].Cells[4].Value = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value) * Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value) * lengthOfStay;
+                CalculateTotal();
             }
         }
     }
