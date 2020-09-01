@@ -32,6 +32,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.btnHotelBooking = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,11 +81,54 @@
             this.label1.Text = "ASEAN Skills 2020";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Location = new System.Drawing.Point(353, 186);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(325, 59);
+            this.btnConfirm.TabIndex = 4;
+            this.btnConfirm.Text = "Confirm Arrival Details";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // btnHotelBooking
+            // 
+            this.btnHotelBooking.Location = new System.Drawing.Point(353, 273);
+            this.btnHotelBooking.Name = "btnHotelBooking";
+            this.btnHotelBooking.Size = new System.Drawing.Size(325, 59);
+            this.btnHotelBooking.TabIndex = 5;
+            this.btnHotelBooking.Text = "Hotel Booking";
+            this.btnHotelBooking.UseVisualStyleBackColor = true;
+            this.btnHotelBooking.Click += new System.EventHandler(this.btnHotelBooking_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(301, 130);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(428, 29);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Country Representative Main Menu";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(353, 361);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(325, 59);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "Update Info / Booking";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
             // CountryMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1059, 545);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnHotelBooking);
+            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -91,6 +138,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -100,5 +148,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button btnHotelBooking;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

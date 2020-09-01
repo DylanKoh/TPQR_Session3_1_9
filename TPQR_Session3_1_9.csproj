@@ -64,6 +64,12 @@
     <Compile Include="Arrival.cs">
       <DependentUpon>Session3Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmArrival.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmArrival.Designer.cs">
+      <DependentUpon>ConfirmArrival.cs</DependentUpon>
+    </Compile>
     <Compile Include="CountryMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,18 @@
     </Compile>
     <Compile Include="CreateAccount.Designer.cs">
       <DependentUpon>CreateAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HotelBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HotelBooking.Designer.cs">
+      <DependentUpon>HotelBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HotelMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HotelMap.Designer.cs">
+      <DependentUpon>HotelMap.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -114,8 +132,20 @@
     <EmbeddedResource Include="AdminMain.resx">
       <DependentUpon>AdminMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmArrival.resx">
+      <DependentUpon>ConfirmArrival.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CountryMain.resx">
       <DependentUpon>CountryMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateAccount.resx">
+      <DependentUpon>CreateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HotelBooking.resx">
+      <DependentUpon>HotelBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HotelMap.resx">
+      <DependentUpon>HotelMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -128,6 +158,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -151,6 +182,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Hotel_Map_Marking.png" />
     <Content Include="Session3Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Session3Model.Context.cs</LastGenOutput>
