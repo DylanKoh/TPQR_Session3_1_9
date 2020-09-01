@@ -45,8 +45,8 @@ namespace TPQR_Session3_1_9
                     Close();
                 }
             }
-            
-            
+
+
         }
 
         private void btnHotelBooking_Click(object sender, EventArgs e)
@@ -56,9 +56,17 @@ namespace TPQR_Session3_1_9
                 var getHotel = (from x in context.Hotel_Booking
                                 where x.userIdFK == _user.userId
                                 select x).FirstOrDefault();
+                var getArrival = (from x in context.Arrivals
+                                  where x.userIdFK == _user.userId
+                                  select x).FirstOrDefault();
                 if (getHotel != null)
                 {
                     MessageBox.Show("Hotel Booking has already been confirmed!", "Hotel Booking",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (getArrival == null)
+                {
+                    MessageBox.Show("Please confirm your arrival details first!", "Hotel Booking",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -66,6 +74,28 @@ namespace TPQR_Session3_1_9
                     Hide();
                     (new HotelMap(_user)).ShowDialog();
                     Close();
+                }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            using (var context = new Session3Entities())
+            {
+                var getHotel = (from x in context.Hotel_Booking
+                                where x.userIdFK == _user.userId
+                                select x).FirstOrDefault();
+                var getArrival = (from x in context.Arrivals
+                                  where x.userIdFK == _user.userId
+                                  select x).FirstOrDefault();
+                if (getArrival == null || getHotel == null) 
+                {
+                    MessageBox.Show("Please confirm your arrival details or complete your hotel booking first!", "Update Info",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+
                 }
             }
         }
