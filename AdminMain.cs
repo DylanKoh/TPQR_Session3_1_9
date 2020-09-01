@@ -23,5 +23,26 @@ namespace TPQR_Session3_1_9
             (new LoginForm()).ShowDialog();
             Close();
         }
+
+        private void btnArrivalSummary_Click(object sender, EventArgs e)
+        {
+            Hide();
+            (new ArrivalSummary()).ShowDialog();
+            Close();
+        }
+
+        private void btnHotelSummary_Click(object sender, EventArgs e)
+        {
+            Hide();
+            (new HotelSummary()).ShowDialog();
+            Close();
+        }
+
+        private void btnGuestSummary_Click(object sender, EventArgs e)
+        {
+            Hide();
+            (new GuestSummary()).ShowDialog();
+            Close();
+        }
     }
 }
