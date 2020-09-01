@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,6 +27,7 @@ namespace TPQR_Session3_1_9
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            Regex regex = new Regex("^[a-zA-Z0-9]*$");
             if (cbCountry.SelectedItem == null || string.IsNullOrWhiteSpace(txtUserID.Text) || string.IsNullOrWhiteSpace(txtPassword.Text) || string.IsNullOrWhiteSpace(txtRePassword.Text))
             {
                 MessageBox.Show("Please check your fields and try again!",
@@ -40,6 +42,11 @@ namespace TPQR_Session3_1_9
             {
                 MessageBox.Show("User ID needs to be at least 8 characters long!",
                     "User ID too short", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!regex.IsMatch(txtUserID.Text))
+            {
+                MessageBox.Show("User ID cannot have special characters!",
+                   "User ID Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -65,7 +72,7 @@ namespace TPQR_Session3_1_9
                         context.Users.Add(newUser);
                         context.SaveChanges();
                         MessageBox.Show("Account created successfully!",
-                    "Create Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Create Account", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Hide();
                         (new LoginForm()).ShowDialog();
                         Close();
