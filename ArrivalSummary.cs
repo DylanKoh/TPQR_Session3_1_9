@@ -92,7 +92,7 @@ namespace TPQR_Session3_1_9
                     {
                         var timing = dataGridView2.Rows[row.Index].Cells[cell.Index].Value.ToString();
                         var getArrivalDetails = (from x in context.Arrivals
-                                                 where x.arrivalDate == date22 && x.arrivalTime == timing
+                                                 where x.arrivalDate == date23 && x.arrivalTime == timing
                                                  select x);
                         var sb = new StringBuilder($"{dataGridView2.Rows[row.Index].Cells[cell.Index].Value}");
                         foreach (var item in getArrivalDetails)
