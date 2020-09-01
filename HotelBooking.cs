@@ -112,6 +112,7 @@ namespace TPQR_Session3_1_9
         {
             var totalParticipants = Int32.Parse(lblDelegates.Text) + Int32.Parse(lblCompetitors.Text);
             var getTotalCapOfRooms = 0;
+            var boolCheck = true;
             for (int i = 0; i <= dataGridView1.RowCount - 1; i++)
             {
                 if (i == 0)
@@ -123,9 +124,21 @@ namespace TPQR_Session3_1_9
                     getTotalCapOfRooms += Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value) * 2;
                 }
             }
+            foreach (DataGridViewRow item in dataGridView1.Rows)
+            {
+                if (Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[2].Value)-Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[3].Value) < 0)
+                {
+                    boolCheck = false;
+                }
+            }
             if (getTotalCapOfRooms < totalParticipants)
             {
-                MessageBox.Show("There are not enough rooms booked to accomodate all participants!",
+                MessageBox.Show("There are not enough rooms booked to accomedate all participants!",
+                    "Insufficient rooms booked", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (boolCheck == false)
+            {
+                MessageBox.Show("There are not enough rooms for the hotel to accomedate all participants!",
                     "Insufficient rooms booked", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else

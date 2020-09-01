@@ -95,7 +95,9 @@ namespace TPQR_Session3_1_9
                 }
                 else
                 {
-
+                    Hide();
+                    (new UpdateInfo(_user)).ShowDialog();
+                    Close();
                 }
             }
         }
