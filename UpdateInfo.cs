@@ -170,12 +170,27 @@ namespace TPQR_Session3_1_9
                             if (dataGridView1.Rows[item.Index].Cells[0].Value.ToString() == "Single")
                             {
                                 getBookings.numSingleRoomsRequired = Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[4].Value);
-                                hotelDetails.numSingleRoomsBooked = Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[4].Value);
+                                if (hotelDetails.numSingleRoomsBooked - Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[3].Value) == 0)
+                                {
+                                    hotelDetails.numSingleRoomsBooked = Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[4].Value);
+                                }
+                                else
+                                {
+                                    hotelDetails.numSingleRoomsBooked = hotelDetails.numSingleRoomsBooked - Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[3].Value) + Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[4].Value);
+                                }
+                                
                             }
                             else
                             {
                                 getBookings.numDoubleRoomsRequired = Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[4].Value);
-                                hotelDetails.numDoubleRoomsBooked = Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[4].Value);
+                                if(hotelDetails.numDoubleRoomsBooked - Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[3].Value) == 0)
+                                {
+                                    hotelDetails.numDoubleRoomsBooked = Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[4].Value);
+                                }
+                                else
+                                {
+                                    hotelDetails.numDoubleRoomsBooked = hotelDetails.numDoubleRoomsBooked - Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[3].Value) + Convert.ToInt32(dataGridView1.Rows[item.Index].Cells[4].Value);
+                                }
                             }
                         }
                         
